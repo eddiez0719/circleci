@@ -1,4 +1,7 @@
 version: 2.1
+orbs:
+  jq: circleci/jq@2.2.0
+
 jobs:
   build:
     docker:
@@ -8,7 +11,9 @@ jobs:
           password: $DOCKER_HUB_ACCESS_TOKEN  # context / project UI env-var reference
     steps:
       - checkout
-      - run: pwd && ls
+      - run:
+	   name: Install curl and jq
+           command: apk update && apk add curl curl-dev bash
       - run: ./find_latest.sh
 
 # Orchestrate our job run sequence
