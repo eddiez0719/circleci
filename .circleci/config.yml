@@ -12,6 +12,9 @@ jobs:
       - setup_remote_docker:
            version: 19.03.13
       - run:
+           name: Install Docker client
+           command: apk add docker-cli
+      - run:
            name: Install curl and jq
            command: |
                  apk update && apk add curl curl-dev bash
