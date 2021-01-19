@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 repo="aws-cloudformation/cfn-python-lint"
 output=$(curl -sL https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|sort -Vr |head -1)
 echo 'The latest version is '$output
