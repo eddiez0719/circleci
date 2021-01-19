@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run: pwd && ls
-      - run: .\find_latest.sh
+      - run: ./find_latest.sh
 
 # Orchestrate our job run sequence
 workflows:
