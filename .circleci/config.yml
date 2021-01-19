@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run:
-	   name: Install curl and jq
+           name: Install curl and jq
            command: apk update && apk add curl curl-dev bash
       - run: ./find_latest.sh
 
