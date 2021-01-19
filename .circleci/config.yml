@@ -19,6 +19,10 @@ jobs:
            command: |
                  apk update && apk add curl curl-dev bash
                  apk add --upgrade jq
+      - run:
+          name: Publish Docker Image to Docker Hub
+          command: |
+            echo "$DOCKER_HUB_ACCESS_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
       - run: ./find_latest.sh
 
 # Orchestrate our job run sequence
