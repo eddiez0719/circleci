@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: eddieorg/cfn-lint:latest_test
+        auth:
+          username: $DOCKER_HUB_USERNAME
+          password: $DOCKER_HUB_ACCESS_TOKEN  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: pwd && ls
+      - run: .\find_latest.sh
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - build
