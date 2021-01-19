@@ -13,11 +13,13 @@ jobs:
       - checkout
       - run:
            name: Install curl and jq
-           command: apk update && apk add curl curl-dev bash
+           command: |
+                 apk update && apk add curl curl-dev bash
+                 apk add --upgrade jq
       - run: ./find_latest.sh
 
 # Orchestrate our job run sequence
 workflows:
-  build_and_test:
+  DeployCI:
     jobs:
       - build
