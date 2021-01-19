@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   jq: circleci/jq@2.2.0
+  docker: circleci/docker@1.5.0
 
 jobs:
   build:
