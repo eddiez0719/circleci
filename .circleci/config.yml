@@ -8,7 +8,7 @@ jobs:
           username: $DOCKER_HUB_USERNAME
           password: $DOCKER_HUB_ACCESS_TOKEN  # context / project UI env-var reference
    
-    working directory: /tmp
+    working directory: /Users/eddiezhang/DevOps/eddiez0719/tmp/
     steps:
       - checkout
       - setup_remote_docker:
@@ -26,9 +26,9 @@ jobs:
           command: |
             echo "$DOCKER_HUB_PASS" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
       - run: ./find_latest.sh
-      - run echo "my artifact file" > /tmp/test;
+      - run echo "my artifact file" > /Users/eddiezhang/DevOps/eddiez0719/tmp/test;
       - store_artifacts:
-          path: /tmp/test
+          path: /Users/eddiezhang/DevOps/eddiez0719/tmp/test
           destination: artifact-file
           when: always
 
