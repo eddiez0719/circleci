@@ -26,8 +26,7 @@ jobs:
           command: |
             echo "$DOCKER_HUB_PASS" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
       - run: ./find_latest.sh
-      - run:
-	     echo "my artifact file" > /Users/eddiezhang/DevOps/eddiez0719/tmp/test;
+      - run: echo "my artifact file" > /Users/eddiezhang/DevOps/eddiez0719/tmp/test;
       - store_artifacts:
           path: /Users/eddiezhang/DevOps/eddiez0719/tmp/test
           destination: artifact-file
